@@ -3,13 +3,14 @@ var WIDTH = 640;
 var HEIGHT = 400;
 var context;
 var zzdir = -1;
-	
-var canvas = document.getElementById("c");
+
+/* For in broswer */
+/* var canvas = document.getElementById("c");
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
-//context = canvas.getContext("2d");
+context = canvas.getContext("2d"); */
 
-
+/* Dummy Context for headless */
 context = {
     beginPath: function() {},
     moveTo: function(x, y) {},
@@ -55,9 +56,24 @@ function draw(z, red, green, blue, zz) {
 	if(blue < 0 || blue > 255) {
 		blue = Math.round(Math.random()*255);
 	}
-	call = "draw(" + z + "," + red + "," + green + "," + blue + "," + zz + ")";
-	setTimeout(call, 0);
+	gZ = z;
+    gRed = red;
+    gGreen = green;
+    gBlue = blue;
+    gZZ = zz;
 }
 
-draw(WIDTH, Math.round(Math.random()*255), Math.round(Math.random()*255), Math.round(Math.random()*255), HEIGHT);
+var gZ = WIDTH,
+    gRed = Math.round(Math.random()*255),
+    gGreen = Math.round(Math.random()*255),
+    gBlue = Math.round(Math.random()*255),
+    gZZ = HEIGHT;
+
+/* Now run it */
+var i = 0;
+while(i < 1000000) {
+    draw(gZ, gRed, gGreen, gBlue, gZZ);
+    i++;
+}
+
 
