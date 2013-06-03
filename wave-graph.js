@@ -7,7 +7,16 @@ var zzdir = -1;
 var canvas = document.getElementById("c");
 canvas.width = WIDTH;
 canvas.height = HEIGHT;
-context = canvas.getContext("2d");
+//context = canvas.getContext("2d");
+
+
+context = {
+    beginPath: function() {},
+    moveTo: function(x, y) {},
+    lineTo: function(x, y) {},
+    stroke: function(x, y) {},
+    closePath: function() {}
+}
 
 function draw(z, red, green, blue, zz) {
 	context.strokeStyle = "rgb(" + red + "," + green + "," + blue + ")";
