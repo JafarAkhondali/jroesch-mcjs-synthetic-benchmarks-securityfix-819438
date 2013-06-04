@@ -1,8 +1,17 @@
 /* adapted from http://js1k.com/2013-spring/demo/1549 */
 var b = document.body;
-var c = document.getElementsByTagName('canvas')[0];
-var a = c.getContext('2d');
-document.body.clientWidth; // fix bug in webkit: http://qfox.nl/weblog/218
+//var c = document.getElementsByTagName('canvas')[0];
+var c = { height: 200, width: 200 };
+//var a = c.getContext('2d');
+//document.body.clientWidth; // fix bug in webkit: http://qfox.nl/weblog/218
+
+/* context mock */
+var a = {
+    beginPath: function() {},
+    fillStyle: 0,
+    a.arc: function(x, y, a, b c) {},
+    a.fill: function() {}
+};
 		
 l = 200;
 k = 5;
@@ -27,8 +36,10 @@ function g(b) {
     b.x > l - k && (b.x = l - k);
     b.y > l - k && (b.y = l - k)
 }
+
 z = [];
 w = [];
+
 for (var j = 0; 1 > j; j++) z.push({
         g: "L",
         a: 4 + e(4),
@@ -40,6 +51,7 @@ for (var j = 0; 1 > j; j++) z.push({
         e: 0,
         f: "black"
     });
+
 for (var m = 0; 10 > m; m++) w.push({
         g: "F",
         a: 4 + e(20),
@@ -47,7 +59,8 @@ for (var m = 0; 10 > m; m++) w.push({
         y: k + e(l),
         f: "#00FF00"
     });
-setInterval(function () {
+
+var main = function () {
     a.fillStyle = "#DDFFFF";
     a.fillRect(0, 0, l, l);
     h++;
@@ -90,4 +103,7 @@ setInterval(function () {
                 break
             }
     }
-}, 20);
+};
+
+var i = 0;
+while(i < 100000) {}
