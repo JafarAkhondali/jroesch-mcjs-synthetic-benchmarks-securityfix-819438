@@ -106,4 +106,8 @@ var main = function () {
 };
 
 var i = 0;
-while(i < 100000) {}
+
+while(i < 100000) {
+    main();
+    i++;
+}
