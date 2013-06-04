@@ -1,14 +1,25 @@
 /* http://js1k.com/2013-spring/demo/1478 */
 
+
+/* var b = document.body;
+var c = document.getElementsByTagName('canvas')[0];
+var a = c.getContext('2d'); */
+		
 // Screen setup
 c.width = 520; c.height = 520;
 
+var a = {
+    clearRect: function(a, b, c, d) {},
+    fillRect: function(a, b, c, d) {}
+}
+
+
 // Listeners
-onkeydown = keydown;
-addEventListener('mouseup', click);
+//onkeydown = keydown;
+//addEventListener('mouseup', click);
 
 // Loop
-setInterval(simulate, 100);
+//setInterval(simulate, 100);
 
 // Variables
 var size = 64;
@@ -84,3 +95,18 @@ function keydown(event) {
 
 // Draw initial map
 drawMap();
+
+/* Simulate here */
+var i = 0;
+
+/* do it many times */
+while(i < 1000000) {
+    /* every 10 turn the simulation on */
+    if (i % 10 === 0) keydown();
+    /* try and run the simulation */
+    simulate();
+    /* fire a random event */
+    click({ clientX: Math.round(Math.random() * 520), 
+            clientY: Math.round(Math.random() * 520) });
+    i++;
+}
