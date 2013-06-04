@@ -1,6 +1,7 @@
 /* adapted from http://js1k.com/2010-first/demo/29 */
 
-var /* a = document.getElementById("c"), */ k = ["rgb(", , ",", , ",", , ")"],
+/*var a = document.getElementById("c"), */ 
+var k = ["rgb(", , ",", , ",", , ")"],
     d, g = d = 0,
     i, j, b, c;
 
@@ -34,10 +35,10 @@ function l(e, h, f, m) {
 }
 
 function n(e, h, f) {
-    setTimeout(function () {
-            l(e, 0, 0, function () {
-                    f < 100 && n(e + 0.0050, h, f + 1)
-                })
-        }, 13)
+    (function () {
+        l(e, 0, 0, function () {
+            f < 100 && n(e + 0.0050, h, f + 1)
+        })
+    })();
 }
 
